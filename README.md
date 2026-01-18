@@ -1,22 +1,6 @@
-用户想要的是一个存放各种风格老师智能体的项目，实际上是一些 md 文档（prompt 文件），用户可以在 CodeBuddy 的 IDE 或插件中选择不同的老师风格作为自己的 AI 助手。
+# SiliSage - CodeBuddy AI Teachers Collection
 
-让我重新理解需求：
-1. 项目本质：一堆 md 文档（prompt 文件）
-2. 使用方式：配合 CodeBuddy IDE/插件使用
-3. 功能：用户可以选择不同风格的老师作为 AI 助手
-4. 目的：为 CodeBuddy 创建各种教学风格的智能体
-
-所以 README 应该介绍：
-- 项目是什么（prompt 集合）
-- 有哪些老师风格
-- 如何在 CodeBuddy 中使用
-- 如何添加新的老师风格
-- 目录结构
-
-让我重新生成一个符合这个需求的 README。
-# SiliSage - CodeBuddy AI Teachers Hub
-
-**🎭 多风格AI教师Prompt集合 | 为CodeBuddy打造的智能教学助手库**
+**🎭 多风格AI教师Agent集合 | 为CodeBuddy打造的智能教学助手库**
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-green.svg)]()
@@ -55,33 +39,36 @@ SiliSage（硅基智者）是一个开源的AI教师Prompt文档库，专为Code
 
 ## 🚀 快速开始
 
-### 1. 安装到CodeBuddy
+### 1. 克隆仓库
 
 ```bash
 # 克隆仓库到本地
 git clone https://github.com/yourusername/SiliSage.git
-
-# 在CodeBuddy中配置本地Prompt库路径
-# 设置 → AI助手 → Prompt库 → 添加本地路径
-# 选择: /path/to/SiliSage/teachers
 ```
 
-### 2. 选择你的AI教师
+### 2. 导入Agent配置
 
-在CodeBuddy中：
-1. 打开AI助手面板
-2. 点击"切换教师风格"
-3. 从列表中选择喜欢的教师
-4. 立即开始个性化学习
+在 CodeBuddy 中使用非常简单：
 
-### 3. 快速试用
+1. **打开 Agent 管理**：在 CodeBuddy 界面中打开 Agent 配置管理界面
+2. **导入配置**：选择导入，将 `teachers/` 目录下的 Agent 配置文件导入
+3. **选择风格**：从列表中选择你喜欢的教师风格
+4. **开始对话**：AI 会以选定的教师风格与你交流
 
-```bash
-# 查看所有可用教师
-ls teachers/
+### 示例对话
 
-# 预览教师风格
-cat teachers/SAGE_MENTOR.md | head -20
+**学术型学习**：
+```
+1. 选择 SAGE_MENTOR Agent
+2. 提问：请详细解释一下快速排序的原理和时间复杂度分析
+3. AI 回复：快速排序是一种高效的分治算法...其时间复杂度由主定理可得...
+```
+
+**轻松入门学习**：
+```
+1. 选择 COOL_BUDDY Agent
+2. 提问：我想学编程，但感觉很难，怎么办？
+3. AI 回复：别担心！编程就像搭积木...😄
 ```
 
 ---
@@ -92,27 +79,25 @@ cat teachers/SAGE_MENTOR.md | head -20
 SiliSage/
 ├── README.md                 # 项目说明文档
 ├── LICENSE                   # MIT开源协议
-├── teachers/                 # AI教师Prompt目录
-│   ├── SAGE_MENTOR.md       # 学术导师型
-│   ├── COOL_BUDDY.md        # 轻松伙伴型
-│   ├── CODE_MASTER.md       # 实战大师型
-│   ├── PATIENT_GUIDE.md     # 耐心引导型
-│   ├── CHALLENGE_KING.md    # 挑战王者型
-│   ├── DEBUG_EXPERT.md      # 调试专家型
-│   ├── ALGORITHM_GURU.md    # 算法大师型
-│   └── OI_COACH.md          # 竞赛教练型
-├── templates/               # 教师模板
-│   ├── basic_template.md    # 基础模板
-│   └── advanced_template.md # 高级模板
+├── teachers/                 # AI教师Agent配置目录
+│   ├── SAGE_MENTOR.md       # 学术导师型Agent配置
+│   ├── COOL_BUDDY.md        # 轻松伙伴型Agent配置
+│   ├── CODE_MASTER.md       # 实战大师型Agent配置
+│   ├── PATIENT_GUIDE.md     # 耐心引导型Agent配置
+│   ├── CHALLENGE_KING.md    # 挑战王者型Agent配置
+│   ├── DEBUG_EXPERT.md      # 调试专家型Agent配置
+│   ├── ALGORITHM_GURU.md    # 算法大师型Agent配置
+│   └── OI_COACH.md          # 竞赛教练型Agent配置
+├── templates/               # Agent配置模板
+│   ├── basic_template.md    # 基础Agent模板
+│   └── advanced_template.md # 高级Agent模板
 ├── examples/                # 使用示例
 │   ├── conversation_demo.md # 对话示例
 │   └── comparison.md        # 风格对比
-├── docs/                    # 文档
-│   ├── CONTRIBUTING.md      # 贡献指南
-│   ├── CUSTOMIZATION.md     # 定制教程
-│   └── API_REFERENCE.md     # API参考
-└── tests/                   # 测试用例
-    └── test_teachers.py     # 教师风格测试
+└── docs/                    # 文档
+    ├── CONTRIBUTING.md      # 贡献指南
+    ├── CUSTOMIZATION.md     # 定制教程
+    └── AGENT_GUIDE.md       # Agent创建指南
 ```
 
 ---
@@ -132,7 +117,7 @@ SiliSage/
 
 ---
 
-## 🔧 创建自定义教师
+## 🔧 创建自定义Agent
 
 ### 快速开始
 
@@ -141,28 +126,48 @@ SiliSage/
 cp templates/basic_template.md teachers/MY_TEACHER.md
 ```
 
-2. **编辑配置文件**：
+2. **编辑Agent配置文件**：
 ```markdown
-# 修改以下关键部分
-- name: "你的教师名称"
-- style: "教学风格描述"
-- personality: "性格特点"
-- teaching_method: "教学方法"
-- example_dialogues: "添加示例对话"
+---
+name: MY_TEACHER
+description: 描述该教师适合什么样的学习场景和学生群体
+---
+
+# 自定义教学风格
+
+## 教学特点
+- 风格1：具体描述
+- 风格2：具体描述
+
+## 适合场景
+列出适合使用该教师的问题类型和场景
+
+## 教学方法
+详细说明该教师的教学方法和指导原则
 ```
 
 3. **测试并提交**：
 ```bash
-# 本地测试
-python tests/test_teachers.py --teacher MY_TEACHER
-
+# 在 CodeBuddy 中导入测试
 # 提交PR
 git add teachers/MY_TEACHER.md
-git commit -m "Add new teacher style: MY_TEACHER"
+git commit -m "Add new teacher agent: MY_TEACHER"
 git push origin main
 ```
 
-### 配置参数说明
+### Agent配置要点
+
+**YAML Frontmatter（必需）**：
+```yaml
+name: MY_TEACHER             # Agent名称
+description: 描述该教师的专长和适用场景
+```
+
+**关键原则**：
+- `name` 必须简短且具描述性，使用大写字母加下划线
+- `description` 要清晰说明该Agent的教学风格和适用场景
+- 使用第三人称描述
+- 描述要具体，避免模糊不清
 
 详见 [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md)
 
@@ -170,17 +175,28 @@ git push origin main
 
 ## 🤝 贡献指南
 
-我们欢迎社区贡献新的教师风格！详见 [CONTRIBUTING.md](docs/CONTRIBUTING.md)
+我们欢迎社区贡献新的教师Agent！详见 [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
 ### 快速贡献步骤
 
 1. Fork 本仓库
-2. 创建新的教师配置文件
-3. 在 `examples/` 中添加使用示例
-4. 更新教师列表表格
-5. 提交 Pull Request
+2. 复制模板创建新的Agent配置文件
+3. 编辑配置文件，定义教学风格
+4. 在 `examples/` 中添加使用示例
+5. 更新 README 中的教师列表表格
+6. 提交 Pull Request
 
-**贡献者奖励**：您的教师风格将被收录，并署名在教师文档中！
+**贡献者奖励**：
+- 您的教师Agent将被收录
+- 在Agent文档中署名
+- 帮助更多学习者找到适合自己的 AI 导师！
+
+### Agent质量要求
+
+- 描述清晰，风格独特
+- 教学风格一致且自然
+- 提供真实的对话示例
+- 通过 CodeBuddy 实际测试
 
 ---
 
@@ -188,17 +204,17 @@ git push origin main
 
 ### 案例1：竞赛训练
 - **学生**：备战NOI的高中生
-- **选择**：CHALLENGE_KING + OI_COACH
+- **使用**：导入 CHALLENGE_KING 和 OI_COACH Agent
 - **效果**：高强度训练，快速提升算法能力
 
 ### 案例2：编程入门
 - **学生**：零基础初学者
-- **选择**：COOL_BUDDY + PATIENT_GUIDE
+- **使用**：导入 COOL_BUDDY 和 PATIENT_GUIDE Agent
 - **效果**：轻松愉快，建立学习兴趣
 
 ### 案例3：工程开发
 - **学生**：转码求职者
-- **选择**：CODE_MASTER + PROJECT_MENTOR
+- **使用**：导入 CODE_MASTER 和 PROJECT_MENTOR Agent
 - **效果**：掌握最佳实践，完成项目作品
 
 ---
